@@ -33,7 +33,6 @@ locals {
 locals {
   test1 = { for key, val in local.instance_info : upper(key) => upper(val)}
   test2 = [for clave, valor in local.instance_info : "Maps ${clave} to ${valor}"]
-
   test3 = [for k, instance in aws_instance.server2 : instance.public_ip]
   test4 = { for k, instance in aws_instance.server2 : instance.public_dns => instance.public_ip }
 
@@ -53,7 +52,7 @@ resource "aws_instance" "server2" {
   for_each = local.instance_info
   instance_type = each.value
   tags = {
-    Name = "server-${local.name_suffix}-${each.value}"  
+    Name = "server-${each.key}-${each.value}"  
   }
 }
 
