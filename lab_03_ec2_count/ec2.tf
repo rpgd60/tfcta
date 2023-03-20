@@ -1,7 +1,8 @@
 
 ## Create instance - will use defaults for parameters not specified (e.g. VPC, security group)
 resource "aws_instance" "server" {
-  count         = var.num_instances
+  # count         = var.num_instances
+  count = var.haz_algo
   ami           = var.my_ami
   instance_type = var.instance_type
 
