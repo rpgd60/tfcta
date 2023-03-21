@@ -32,35 +32,7 @@ variable "lab_number" {
   default = "put-a-lab-number-here"
 }
 
-## VPC and subnet parameters
 
-## VPC parameters
-variable "vpc_cidr" {
-  type    = string
-  default = "10.10.0.0/16"
-  validation {
-    condition     = can(cidrnetmask(var.vpc_cidr)) ## Needs work
-    error_message = "Invalid CIDR for VPC."
-  }
-}
-
-variable "public_subnets" {
-  type        = list(string)
-  description = "list of subnets used for public subnets"
-  default     = ["10.10.1.0/24", "10.10.2.0/24"]
-}
-
-variable "private_subnets" {
-  type        = list(string)
-  description = "list of subnets used for private subnets"
-  default     = ["10.10.10.0/23", "10.10.12.0/23"]
-}
-
-variable "db_subnets" {
-  type        = list(string)
-  description = "list of subnets used for database subnets"
-  default     = ["10.10.201.0/24", "10.10.202.0/24"]
-}
 
 
 ## EC2 Instance Parameters
