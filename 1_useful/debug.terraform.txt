@@ -9,6 +9,7 @@ In another terminal where you will "tail" the terraform.log command, run the com
 tail -f terraform.log | grep -o Action.*&\
 
 
+## Some commands to explore filter (work in progress)
 
 
 grep -o prints only the matching part of the lines
