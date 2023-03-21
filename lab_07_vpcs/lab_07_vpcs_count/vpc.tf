@@ -3,7 +3,7 @@ resource "aws_vpc" "vpc1" {
   cidr_block           = var.vpc_cidr
   enable_dns_support   = true
   enable_dns_hostnames = true
-  tags = {
+  tags = { 
     Name   = "vpc-${local.name_suffix}"
     Equipo = "Athletic"
   }
@@ -49,7 +49,7 @@ resource "aws_eip" "nat_ip" {
 }
 
 resource "aws_nat_gateway" "natgw" {
-  count         = length(var.public_subnets)
+  count         = length(var.public_subnets) 
   allocation_id = aws_eip.nat_ip[count.index].id
   subnet_id     = aws_subnet.public_subnet[count.index].id
   tags          = { "Name" = "natgw-${local.name_suffix}-${count.index}" }
