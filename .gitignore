@@ -4,6 +4,7 @@
 .DS_Store
 *.log
 .terraform.lock.hcl
+*.zip
 
 # Local .terraform directories
 **/.terraform/*
