@@ -9,6 +9,6 @@ AWS IAM Presentations
 
 
 Terraform Links
-- Weekly newsletter - V. Babenko
+- Weekly newsletter - Anton Babenko
 https://www.weekly.tf/
 
