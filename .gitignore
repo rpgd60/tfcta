@@ -5,6 +5,7 @@
 *.log
 .terraform.lock.hcl
 *.zip
+lab_09_modules/*
 
 # Local .terraform directories
 **/.terraform/*
