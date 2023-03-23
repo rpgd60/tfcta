@@ -17,8 +17,8 @@ terraform {
       dynamodb_table = "PUT HERE YOUR TABLE NAME" #   "acme02-terraform-state-locks-dev"
       region         = "eu-west-1"
       encrypt        = true
-      # profile = "cta"
-      profile = "YOURACCOUNT_TerraformCourse"   ## TODO
+      profile = "cta"
+      # profile = "YOURACCOUNT_TerraformCourse"   ## TODO
     }
   }
 
