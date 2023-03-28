@@ -3,7 +3,7 @@ lab_number = "09b2"
 region    = "eu-west-1"
 profile   = "cta"
 company   = "WayneCorp"
-project   = "proj2"
+project   = "project2"
 server_os = "amazon_linux"
 
 ec2_instance_type = "t2.micro"
