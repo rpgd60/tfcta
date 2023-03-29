@@ -63,11 +63,6 @@ variable "instance_type" {
   default = "t2.micro"
 }
 
-variable "my_ami" {
-  description = "ami for EC2 instance"
-  type        = string
-  default     = "ami-0b752bf1df193a6c4"
-}
 
 # variable "key_name" {
 #   type = string

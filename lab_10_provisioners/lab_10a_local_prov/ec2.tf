@@ -2,10 +2,8 @@
 ## Create instance - will use defaults for parameters not specified (e.g. VPC, security group)
 resource "aws_instance" "server" {
   count         = var.num_instances
-  ami           = var.my_ami
+  ami           = data.aws_ami.amazon_linux2_kernel_5.id
   instance_type = var.instance_type
-
-  vpc_security_group_ids = [aws_security_group.sec_web.id]
   ## Note use of module (aka remainder) operator 
   ## Example if var.num_azs is 3: 
   # Instance 0 -> AZ 0
@@ -20,8 +18,17 @@ resource "aws_instance" "server" {
     Name = "vm-${local.name_suffix}-${count.index}"
   }
 
+  ## NOTE : HashiCorp discourages the use of provisioners!
+  
+
   provisioner "local-exec" {
-    command = "echo Server ${count.index}: IP address is ${self.private_ip} >> ./tempfile"
+    when = create
+    command = "mkdir ${path.root}/temp; echo Server ${count.index}: IP address is ${self.private_ip} >> ${path.cwd}/temp/tempfile.txt"
+  }
+
+  provisioner "local-exec" {
+    when = destroy
+    command = "rm -rf ${path.root}/temp"
   }
 }
 
