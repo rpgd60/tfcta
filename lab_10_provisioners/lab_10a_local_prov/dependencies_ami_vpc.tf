@@ -44,10 +44,6 @@ data "aws_ami" "ubuntu_22_04" {
     owners = ["099720109477"]
 }
 
-output "test" {
-  value = data.aws_ami.ubuntu_22_04  
-}
-
 
 ## Data sources to identify the default vpc and its subnets
 ## https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc

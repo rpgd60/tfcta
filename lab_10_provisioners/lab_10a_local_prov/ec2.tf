@@ -19,13 +19,15 @@ resource "aws_instance" "server" {
   }
 
   ## NOTE : HashiCorp discourages the use of provisioners!
-  
-
+  ## https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax#provisioners-are-a-last-resort
   provisioner "local-exec" {
     when = create
-    command = "mkdir ${path.root}/temp; echo Server ${count.index}: IP address is ${self.private_ip} >> ${path.cwd}/temp/tempfile.txt"
+    command = "mkdir -p ${path.root}/temp"
   }
-
+  provisioner "local-exec" {
+    when = create
+    command = "echo Server ${count.index}: IP address is ${self.private_ip} >> ${path.root}/temp/tempfile.txt"
+  }
   provisioner "local-exec" {
     when = destroy
     command = "rm -rf ${path.root}/temp"

@@ -4,10 +4,10 @@ output "public_ip" {
 }
 
 
-output "ami" {
-  description = "AMI of instance"
-  value       = aws_instance.server[*].ami
-}
+# output "ami" {
+#   description = "AMI of instance"
+#   value       = aws_instance.server[*].ami
+# }
 
 output "instance_id" {
   description = "Id of instance"
