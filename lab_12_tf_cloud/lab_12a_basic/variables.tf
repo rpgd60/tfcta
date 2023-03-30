@@ -5,10 +5,10 @@ variable "region" {
   default = "eu-west-1"
 }
 
-variable "profile" {
-  type    = string
-  default = "cta"
-}
+# variable "profile" {
+#   type    = string
+#   default = "cta"
+# }
 
 ## Environment and Project
 variable "company" {
